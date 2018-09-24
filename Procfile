@@ -1,0 +1,1 @@
+web: gunicorn hmsae.wsgi --log-file -
