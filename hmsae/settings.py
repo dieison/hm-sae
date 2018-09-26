@@ -111,3 +111,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = 'lista_pacientes'
