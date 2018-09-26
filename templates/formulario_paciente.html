@@ -8,12 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <ul>
-    {% for paciente in pacientes %}
-        <li>{{ paciente.nome_do_Paciente }}</li>
-    {% endfor %}
-    </ul>
-    <br>
-    <a href="{% url 'novo_paciente' %}">Novo</a>
+    <form action="{% url 'novo_paciente' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Salvar</button>
+    </form>
 </body>
 </html>
