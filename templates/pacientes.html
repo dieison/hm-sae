@@ -10,7 +10,7 @@
 <body>
     <ul>
     {% for paciente in pacientes %}
-        <li>{{ paciente.nome_do_Paciente }}</li>
+        <li><a href="{% url 'alterar_paciente' paciente.id %}">{{ paciente.nome_do_Paciente }}</a></li>
     {% endfor %}
     </ul>
     <br>

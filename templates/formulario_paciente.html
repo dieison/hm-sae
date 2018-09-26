@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'novo_paciente' %}" method="POST">
+    <form method="POST">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Salvar</button>
