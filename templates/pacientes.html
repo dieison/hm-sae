@@ -10,7 +10,11 @@
 <body>
     <ul>
     {% for paciente in pacientes %}
-        <li><a href="{% url 'alterar_paciente' paciente.id %}">{{ paciente.nome_do_Paciente }}</a></li>
+        <li>
+            <a href="{% url 'alterar_paciente' paciente.id %}">{{ paciente.nome_do_Paciente }}</a>
+            <a href="{% url 'alterar_paciente' paciente.id %}">Alterar</a>
+            <a href="{% url 'excluir_paciente' paciente.id %}">Excluir</a>
+        </li>
     {% endfor %}
     </ul>
     <br>
