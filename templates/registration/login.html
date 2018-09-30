@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
-
+{% load bootstrap %}
 {% block title %}Página de Login{% endblock %}
 
 {% block main %}
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-info">Login</button>
-    </form>
+
+    <div class="row">
+        <div class="col-sm">
+         <!-- <img class="logo_panel" height="120px" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/c247f236516213.571f831185313.png"
+               alt="Hospital de Messejana"> -->
+        </div>
+
+        <div class="col-sm">
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="btn btn-info">Login</button>
+            </form>
+        </div>
+
+        <div class="col-sm">
+        </div>
+  </div>
 {% endblock%}

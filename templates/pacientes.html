@@ -1,24 +1,49 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <a href="{% url 'logout' %}">Sair</a>
-    <ul>
-    {% for paciente in pacientes %}
-        <li>
-            <a href="{% url 'alterar_paciente' paciente.id %}">{{ paciente.nome_do_Paciente }}</a>
-            <a href="{% url 'alterar_paciente' paciente.id %}">Alterar</a>
-            <a href="{% url 'excluir_paciente' paciente.id %}">Excluir</a>
-        </li>
-    {% endfor %}
-    </ul>
-    <br>
-    <a href="{% url 'novo_paciente' %}">Novo</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Lista de Pacientes{% endblock %}
+
+{% block main %}
+
+    <h3>Lista de Pacientes</h3>
+    <div class="row">
+        <div class="col-sm">
+        </div>
+
+        <div class="col-md-8">
+        </div>
+
+        <div class="col-sm">
+            <p> Olá {{ user.username }} <a href="{% url 'logout' %}" ><span class="badge badge-dark">Sair</span></a></p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm">
+        </div>
+
+        <div class="col-md-8">
+            <table class="table table-striped" style="width:100%">
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th class="icons-rigth" scope="col">Excluir</th>
+                    <th class="icons-rigth" scope="col">Alterar</th>
+                </tr>
+                {% for paciente in pacientes %}
+                    <tr>
+                        <td>{{ paciente.nome_do_Paciente }}</td>
+                        <td class="icons-rigth"><a class="btn btn-danger" href="{% url 'excluir_paciente' paciente.id %}"><i class="fas fa-trash-alt"></i></a></td>
+                        <td class="icons-rigth"><a class="btn btn-warning" href="{% url 'alterar_paciente' paciente.id %}"><i class="fas fa-edit" ></i></a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <a href="{% url 'novo_paciente' %} " class="btn btn-primary" >Novo</a>
+        </div>
+
+        <div class="col-sm">
+        </div>
+    </div>
+
+{% endblock%}
+
