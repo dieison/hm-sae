@@ -5,7 +5,13 @@ from .forms import PacienteForm
 
 @login_required
 def lista_pacientes(request):
-    pacientes = Paciente.objects.all()
+    termo_busca = request.GET.get('pesquisa', None)
+
+    if termo_busca:
+        pacientes = Paciente.objects.all()
+        pacientes = pacientes.filter(nome_do_Paciente=termo_busca)
+    else:
+        pacientes = Paciente.objects.all()
     return render(request, 'pacientes.html', {'pacientes': pacientes})
 
 
