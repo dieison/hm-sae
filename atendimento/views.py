@@ -8,8 +8,7 @@ def lista_pacientes(request):
     termo_busca = request.GET.get('pesquisa', None)
 
     if termo_busca:
-        pacientes = Paciente.objects.all()
-        pacientes = pacientes.filter(nome_do_Paciente=termo_busca)
+        pacientes = Paciente.objects.filter(nome_do_Paciente__icontains=termo_busca) | Paciente.objects.filter(n_do_Prontuário__icontains=termo_busca)
     else:
         pacientes = Paciente.objects.all()
     return render(request, 'pacientes.html', {'pacientes': pacientes})
