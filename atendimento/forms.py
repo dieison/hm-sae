@@ -7,7 +7,7 @@ class PacienteForm(ModelForm):
         model = Paciente
         fields = ['nome_do_Paciente', 'setor', 'leito', 'n_do_Prontuário']
 
-class FichaForm(ModelForm):
-    class Meta:
-        model = Ficha
-        fields = ['nome_do_Paciente', 'setor', 'leito', 'n_do_Prontuário']
+#class FichaForm(ModelForm):
+#    class Meta:
+#        model = Ficha
+#        fields = ['nome_do_Paciente', 'setor', 'leito', 'n_do_Prontuário']
