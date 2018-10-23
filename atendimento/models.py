@@ -10,12 +10,13 @@ class Paciente(models.Model):
     def __str__(self):
         return self.nome_do_Paciente
 
+# TODO: encontrar uma forma melhor de dividir as areas dos sintomas e exibir por meio de paginação.
 class Ficha(models.Model):
 
     paciente = models.ForeignKey(Paciente, null=True, blank=True, on_delete=models.CASCADE)
 
     data = models.DateTimeField(default=datetime.now())
-
+    # FIXME: talvez usar Composição de classes
     #ConfortoNeurologico
     coma = models.BooleanField(default=False)
     nivel_de_conciência_diminuído = models.BooleanField(default=False, verbose_name='Nível deconciência diminuído')
